@@ -32,6 +32,7 @@ public class KeyInput implements KeyListener
             lazers.setVelY(-5);
             Screen.addObject(lazers);
         }
+
     }
 
     @Override
