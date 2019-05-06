@@ -4,7 +4,7 @@ import java.awt.*;
 
 public abstract class CoreObject extends Rectangle
 {
-    boolean destroyed;
+    boolean destroyed = false;
     Color color;    // Set the color of the object.
     double velX = 0;   // Speed obj moves horizontally
     double velY = 0;   // Speed obj moves vertically

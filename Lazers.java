@@ -4,14 +4,13 @@ import java.awt.*;
 
 public class Lazers extends CoreObject
 {
+    public boolean ally;
 
-
-    public Lazers(int x, int y, int width, int height, Color color) {
+    public Lazers(int x, int y, int width, int height, Color color,boolean ally)
+    {
         super(x, y, width, height, color);
+        this.ally= ally;
     }
-
-
-
 
 
     @Override
@@ -21,16 +20,22 @@ public class Lazers extends CoreObject
         {
             return;
         }
-        CoreObject[] objects = Screen.getCoreObjects();
-        for(int i = 0; i < Screen.getObjectCounter();i++)
+        if(ally)
         {
-            CoreObject pawn = Screen.getCoreObjects()[i];
-            if(intersects(pawn) && !pawn.destroyed)
+            CoreObject[] objects = Screen.getCoreObjects();
+            for(int i = 0; i < Screen.getObjectCounter();i++)
             {
-                pawn.destroyed = true;
-                destroyed = true;
+                CoreObject pawn = Screen.getCoreObjects()[i];
+                if(intersects(pawn) && !pawn.destroyed)
+                {
+                    pawn.destroyed = true;
+                    destroyed = true;
+                }
+
             }
         }
+
+
 
 
         x += velX;

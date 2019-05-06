@@ -41,7 +41,7 @@ public class Player extends CoreObject
     public void shoot()
     {
 
-        Lazers lazer = new Lazers(x,y,10,10, Color.ORANGE);
+        Lazers lazer = new Lazers(x,y,3,5, Color.BLUE,true);
         lazer.setVelY(-5);
 
         lazers[lazerCounter] = lazer;
