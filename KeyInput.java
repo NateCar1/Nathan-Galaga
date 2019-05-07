@@ -15,7 +15,9 @@ public class KeyInput implements KeyListener
 
     @Override
     public void keyPressed(KeyEvent e)
+
     {
+
         Player spaceship = Screen.getInstance().spaceship;
         if(e.getKeyCode() == KeyEvent.VK_A)
         {

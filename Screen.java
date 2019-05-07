@@ -104,7 +104,8 @@ public class Screen extends Canvas implements Runnable
      */
     public void reset()
     {
-        coreObjects = new CoreObjects[100];
+        coreObjects = new CoreObject[100];
+        objectCounter = 0;
         int x = Reference.CENTER_X/2;
         int y = 20;
         int pawnWidth = 10;
