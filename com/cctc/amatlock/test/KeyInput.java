@@ -15,7 +15,9 @@ public class KeyInput implements KeyListener
 
     @Override
     public void keyPressed(KeyEvent e)
+
     {
+
         Player spaceship = Screen.getInstance().spaceship;
         if(e.getKeyCode() == KeyEvent.VK_A)
         {
@@ -28,9 +30,7 @@ public class KeyInput implements KeyListener
 
         if(e.getKeyCode() == KeyEvent.VK_SPACE)
         {
-            Lazers lazers = new Lazers(spaceship.x,spaceship.y,10,10, Color.ORANGE);
-            lazers.setVelY(-5);
-            Screen.addObject(lazers);
+            spaceship.shoot();
         }
 
     }
