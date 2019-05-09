@@ -2,8 +2,8 @@ package com.cctc.amatlock.test.utilities;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.net.URISyntaxException;
 
 public class ImageLoader
 {
@@ -18,8 +18,12 @@ public class ImageLoader
      * @param imagePath file system path to the image
      * @return the loaded image.
      */
-    public BufferedImage loadImage(String imagePath) throws IOException
+    public BufferedImage loadImage(String imagePath) throws IOException, URISyntaxException
     {
+
+//        InputStream in = getClass().getResourceAsStream(IMAGES + imagePath);
+//        System.out.println(IMAGES + imagePath);
+//        image = ImageIO.read(in);
         image = ImageIO.read(new File(IMAGES + imagePath));
         return image;
     }
