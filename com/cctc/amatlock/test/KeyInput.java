@@ -1,5 +1,7 @@
 package com.cctc.amatlock.test;
 
+import com.cctc.amatlock.test.utilities.Sounds;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -30,6 +32,7 @@ public class KeyInput implements KeyListener
 
         if(e.getKeyCode() == KeyEvent.VK_SPACE)
         {
+            Sounds.pew.open();
             spaceship.shoot();
         }
 

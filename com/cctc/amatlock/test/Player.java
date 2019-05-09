@@ -1,6 +1,7 @@
 package com.cctc.amatlock.test;
 
 import com.cctc.amatlock.test.utilities.Images;
+import com.cctc.amatlock.test.utilities.Sounds;
 
 import java.awt.*;
 
@@ -43,7 +44,6 @@ public class Player extends CoreObject
     }
     public void shoot()
     {
-
         Lazers lazer = new Lazers(x,y,3,5, Color.BLUE,true);
         lazer.setVelY(-5);
 

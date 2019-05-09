@@ -2,6 +2,7 @@ package com.cctc.amatlock.test;
 
 import com.cctc.amatlock.test.utilities.Images;
 import com.cctc.amatlock.test.utilities.ResourceLoader;
+import com.cctc.amatlock.test.utilities.Sounds;
 
 import javax.swing.*;
 import java.awt.*;
@@ -95,7 +96,6 @@ public class Screen extends Canvas implements Runnable
     {
         spaceship.tick();
 
-
         for (int i = 0; i < objectCounter; i++)
         {
             coreObjects[i].tick();
@@ -181,6 +181,7 @@ public class Screen extends Canvas implements Runnable
     public void init()
     {
         ResourceLoader.loadImages();
+        ResourceLoader.loadSounds();
 
         KeyInput keyInput = new KeyInput();
         this.addKeyListener(keyInput);
