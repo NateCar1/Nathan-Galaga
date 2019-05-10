@@ -1,5 +1,7 @@
 package com.cctc.amatlock.test;
 
+import com.cctc.amatlock.test.utilities.Images;
+
 import java.awt.*;
 
 public class Pawn extends CoreObject
@@ -64,6 +66,7 @@ public class Pawn extends CoreObject
     @Override
     public void render(Graphics g)
     {
+        g.drawImage(Images.donkey,x,y,20,20,null);
 
         if(!destroyed)
         {
@@ -72,7 +75,7 @@ public class Pawn extends CoreObject
                 lazers[i].render(g);
             }
             g.setColor(color);
-            g.fillRect(x,y,width,height);
+//            g.fillRect(x,y,width,height);
         }
     }
 }

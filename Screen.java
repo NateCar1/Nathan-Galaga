@@ -1,5 +1,9 @@
 package com.cctc.amatlock.test;
 
+import com.cctc.amatlock.test.utilities.Images;
+import com.cctc.amatlock.test.utilities.ResourceLoader;
+import com.cctc.amatlock.test.utilities.Sounds;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -13,10 +17,10 @@ public class Screen extends Canvas implements Runnable
     private static CoreObject[] coreObjects = new CoreObject[10000];
     private static int objectCounter = 0;
 
-    // Instance variables
+
     private boolean running = false;  // Boolean flipped when the program starts or stops.
     private Thread thread;  // Don't worry about what this is.
-    Player spaceship = new Player(Reference.CENTER_X-15,Reference.HEIGHT-20,30,10, Color.RED);
+    Player spaceship = new Player(Reference.CENTER_X-15,Reference.HEIGHT-40,32,32, Color.RED);
 //    MotherShip mothership = new MotherShip(,,,,,);
 
 
@@ -53,6 +57,7 @@ public class Screen extends Canvas implements Runnable
         // Next make a rectangle starting in the top right corner (first 2 parameters)
         // Make it the width and height of the window (last 2 parameters)
         g.fillRect(0, 0, Reference.WIDTH, Reference.HEIGHT);
+        g.drawImage(Images.background,0,0,Reference.WIDTH,Reference.HEIGHT,null);
     }
 
     public void drawForeground(Graphics g)
@@ -91,7 +96,6 @@ public class Screen extends Canvas implements Runnable
     {
         spaceship.tick();
 
-
         for (int i = 0; i < objectCounter; i++)
         {
             coreObjects[i].tick();
@@ -112,7 +116,7 @@ public class Screen extends Canvas implements Runnable
 
         for(int i=0;i< 1;i++)
         {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
+            Pawn pawn = new Pawn(x,y,32,32,Color.blue);
             addObject(pawn);
             pawn.setVelX(+5);
         }
@@ -121,7 +125,7 @@ public class Screen extends Canvas implements Runnable
         y += pawnWidth * 2;
         for(int i=0;i< 3;i++)
         {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
+            Pawn pawn = new Pawn(x,y,32,32,Color.blue);
             addObject(pawn);
             pawn.setVelX(+5);
             x += pawnWidth * 2;
@@ -130,7 +134,7 @@ public class Screen extends Canvas implements Runnable
         x -= pawnWidth *8;
         for(int i=0;i< 5;i++)
         {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
+            Pawn pawn = new Pawn(x,y,32,32,Color.blue);
             addObject(pawn);
             pawn.setVelX(+5);
             x += pawnWidth * 2;
@@ -139,7 +143,7 @@ public class Screen extends Canvas implements Runnable
         x -= pawnWidth *12;
         for(int i=0;i< 7;i++)
         {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
+            Pawn pawn = new Pawn(x,y,32,32,Color.blue);
             addObject(pawn);
             pawn.setVelX(+5);
             x += pawnWidth * 2;
@@ -148,7 +152,7 @@ public class Screen extends Canvas implements Runnable
         x -= pawnWidth *12;
         for(int i=0;i< 5;i++)
         {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
+            Pawn pawn = new Pawn(x,y,32,32,Color.blue);
             addObject(pawn);
             pawn.setVelX(+5);
             x += pawnWidth * 2;
@@ -157,7 +161,7 @@ public class Screen extends Canvas implements Runnable
         x -= pawnWidth *8;
         for(int i=0;i< 3;i++)
         {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
+            Pawn pawn = new Pawn(x,y,32,32,Color.blue);
             addObject(pawn);
             pawn.setVelX(+5);
             x += pawnWidth * 2;
@@ -166,7 +170,7 @@ public class Screen extends Canvas implements Runnable
         x -= pawnWidth *4;
         for(int i=0;i< 1;i++)
         {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
+            Pawn pawn = new Pawn(x,y,32,32,Color.blue);
             addObject(pawn);
             pawn.setVelX(+5);
             x += pawnWidth * 2;
@@ -176,77 +180,13 @@ public class Screen extends Canvas implements Runnable
 
     public void init()
     {
-//        ResourceLoader.loadImages();    // loads images from files.
+        ResourceLoader.loadImages();
+        ResourceLoader.loadSounds();
 
         KeyInput keyInput = new KeyInput();
         this.addKeyListener(keyInput);
 
-        int x = Reference.CENTER_X/2;
-        int y = 20;
-        int pawnWidth = 10;
-
-        for(int i=0;i< 1;i++)
-        {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
-            addObject(pawn);
-            pawn.setVelX(+5);
-        }
-
-        x -= pawnWidth * 2;
-        y += pawnWidth * 2;
-        for(int i=0;i< 3;i++)
-        {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
-            addObject(pawn);
-            pawn.setVelX(+5);
-            x += pawnWidth * 2;
-        }
-        y += pawnWidth * 2;
-        x -= pawnWidth *8;
-        for(int i=0;i< 5;i++)
-        {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
-            addObject(pawn);
-            pawn.setVelX(+5);
-            x += pawnWidth * 2;
-        }
-        y += pawnWidth * 2;
-        x -= pawnWidth *12;
-        for(int i=0;i< 7;i++)
-        {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
-            addObject(pawn);
-            pawn.setVelX(+5);
-            x += pawnWidth * 2;
-        }
-        y += pawnWidth * 2;
-        x -= pawnWidth *12;
-        for(int i=0;i< 5;i++)
-        {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
-            addObject(pawn);
-            pawn.setVelX(+5);
-            x += pawnWidth * 2;
-        }
-        y += pawnWidth * 2;
-        x -= pawnWidth *8;
-        for(int i=0;i< 3;i++)
-        {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
-            addObject(pawn);
-            pawn.setVelX(+5);
-            x += pawnWidth * 2;
-        }
-        y += pawnWidth * 2;
-        x -= pawnWidth *4;
-        for(int i=0;i< 1;i++)
-        {
-            Pawn pawn = new Pawn(x,y,pawnWidth,10,Color.blue);
-            addObject(pawn);
-            pawn.setVelX(+5);
-            x += pawnWidth * 2;
-        }
-        y += pawnWidth * 2;
+        reset();
     }
 
     @Override

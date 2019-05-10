@@ -1,5 +1,8 @@
 package com.cctc.amatlock.test;
 
+import com.cctc.amatlock.test.utilities.Images;
+import com.cctc.amatlock.test.utilities.Sounds;
+
 import java.awt.*;
 
 public class Player extends CoreObject
@@ -30,8 +33,13 @@ public class Player extends CoreObject
     @Override
     public void render(Graphics g)
     {
+        if(destroyed)
+        {
+            return;
+        }
         g.setColor(color);
-        g.fillRect(x,y,width,height);
+//        g.fillRect(x,y,width,height);
+        g.drawImage(Images.barry,x,y,30,30,null);
 
         for(int i=0;i <lazerCounter;i++)
         {
@@ -40,7 +48,6 @@ public class Player extends CoreObject
     }
     public void shoot()
     {
-
         Lazers lazer = new Lazers(x,y,3,5, Color.BLUE,true);
         lazer.setVelY(-5);
 
