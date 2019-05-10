@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Nathan Galaga:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Nathan_Galaga_jar</output-path>
+    <root id="archive" name="Nathan Galaga.jar">
+      <element id="module-output" name="Nathan Galaga" />
+      <element id="directory" name="resources">
+        <element id="dir-copy" path="$PROJECT_DIR$/resources" />
+        <element id="module-source" name="Nathan Galaga" />
+      </element>
+    </root>
+  </artifact>
+</component>
